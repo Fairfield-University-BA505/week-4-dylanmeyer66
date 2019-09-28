@@ -29,13 +29,21 @@ __You are encouraged to collaborate with your peers.__ However, you are also res
 9. __Commit and sync your work to GitHub.__ Ask if you need help.
 10. __Discussion Questions__
   * How long did it take you to figure out how to do a bullet list in Markdown? What other formatting tricks did you try?
+      This did not take too long as I have worked with markdown before. I looked into bolding or using italics, but thought this would not add much in this particular case.
   * Was there any code that you thought was particularly elegant? How about cryptic or buggy?
+      I liked the list comprehension to read in the file as it was more elegant than a for look. As long as data types are correct the rest looked fine. 
   * What does the code `raw_lines = list(f)` in the first code cell do exactly? Where can we learn more about loading files? Why do we bother closing the file at the end of the cell?
+      This line is looking into the file and loading the data into an array. You can learn more about loading files either by googling it or by looking into the function definitions. It's best to close the file at the end as it is best practice to close any existing conenctions to external data. This is a good habit to get into prior to using databases as not closing connections in that case can potentially effect several teams, if not a whole comapny, by bogging down access to data.
   * In the second code cell, why do we try to clean up the data all at once? Why not just deal with it as raw strings?
+      It's best to do cleansing in one place as it makes it obvious as to what is happening with the raw data, and makes it easier to deal with the rest as a whole going forward rather than having it spread out and needing to find each instance of interacting with each field. 
   * What is going on in the line below, also from the second code cell?  
   ```raw_rows = [r.rstrip('\n').split(',') for r in raw_lines]```
+      This is a list comprehension which goes through all the lines, removes the new line character, and splits the lines which were delineated by a comma.
   * What does this do?  
   ```for raw_row in raw_rows[1:]:```
+      This skips the first row, the header, and iterates through the remaining rows. 
   * In the third code cell, a list is extended by another list. What does that mean and how is that different from appending list items to the list? How could we do the same thing using `append()`?
+      Extending a list means adding items to the end of it. This is particularly useful as you do not need to create a new object or reference for the new data. This is used often in front end coding to speed operations. Additionally, append adds a single item to the end of a list while extend adds the entirety of another list to the end of the first. Append() would need to be called an additional time. 
   * When might the calculation
   ```w2h_ratio = row[1]/row[2]``` give inaccurate results?
+      This would be inaccurate if row[2] was 0
